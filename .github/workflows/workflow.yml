@@ -16,8 +16,13 @@ jobs:
           npm install
           npm run build
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: main
+          clean: true
+          clean-exclude: |
+            CNAME
+            robots.txt
           folder: .output/public
           repository-name: navarium/navarium.github.io
+          token: ${{ secrets.DEPLOY_KEY }}
