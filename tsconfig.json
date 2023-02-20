@@ -2,18 +2,4 @@
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
   "include": ["env.d.ts"],
-  "compilerOptions": {
-    "baseUrl": ".",
-    "outDir": "./dist",
-    "composite": true,
-    "sourceMap": true,
-    "moduleResolution": "node",
-    "allowJs": true,
-    /* "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true, */
-    /* "paths": {
-      "@/*": ["./src/*"]
-    } */
-  }
 }

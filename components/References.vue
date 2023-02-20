@@ -4,6 +4,7 @@
       <h1 class="h1 text-4xl font-medium mb-8 text-center">{{$t('section.references.title')}}</h1>
       <div class="grid grid-cols-3 gap-8">
         <router-link v-for="reference in references" :to="localePath(reference._path.slice(3))" :key="reference._id">
+          {{ reference._path }}
           <article class="flex flex-col prose max-w-full overflow-hidden rounded-lg shadow-lg dark:text-white pb-4">
             <img v-if="reference.images?.length" :src="reference.images[0]" class="mb-4 h-48 w-auto object-cover">
             <NavariumLogo v-else class="mb-4 p-4 h-48" />
@@ -35,6 +36,8 @@ const isReferencePage = computed(() => {
 const { data: references, refresh } = await useAsyncData('references', () => {
   return queryContent(`/${locale.value}/references`).limit(isReferencePage ? 0 : 3).find()
 })
+
+console.log(isReferencePage.value, references.value)
 
 watch(() => locale.value, () => refresh())
 </script>
