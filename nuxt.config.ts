@@ -11,25 +11,27 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxt/content',
-    '@nuxtjs/i18n',
+    [
+      '@nuxtjs/i18n',
+      {
+        strategy: 'no_prefix',
+        locales: ['en', 'it', 'de', 'hu'],
+        defaultLocale: 'hu',
+        vueI18n: {
+          legacy: false,
+          locale: 'hu',
+          messages: {
+            en,
+            hu,
+            it,
+            de,
+          }
+        }
+      }
+    ],
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt'
   ],
-  i18n: {
-    strategy: 'no_prefix',
-    locales: ['en', 'it', 'de', 'hu'],
-    defaultLocale: 'hu',
-    vueI18n: {
-      legacy: false,
-      locale: 'hu',
-      messages: {
-        en,
-        hu,
-        it,
-        de,
-      }
-    }
-  },
   vite: {
     plugins: [
       svgLoader({
